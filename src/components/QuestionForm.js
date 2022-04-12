@@ -20,7 +20,32 @@ function QuestionForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
+    fetch("http://localhost:4000/questions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
   }
+
+//   function handleSubmit(e) {
+//   e.preventDefault();
+//   const itemData = {
+//     name: name,
+//     category: category,
+//     isInCart: false,
+//   };
+//   fetch("http://localhost:4000/items", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(itemData),
+//   })
+//   .then((r) => r.json())
+//   .then((newItem) => onAddItem(newItem));
+// }
 
   return (
     <section>
